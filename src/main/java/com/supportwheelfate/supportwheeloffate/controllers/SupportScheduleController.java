@@ -23,8 +23,8 @@ public class SupportScheduleController {
     IScheduleService scheduleService;
 
     @RequestMapping("/schedule")
-    GETResponse schedule(@RequestParam("from") @DateTimeFormat(pattern=IGlobal.DATE_FORMAT) Date fromDate,
-                         @RequestParam("n_persons") Integer nPersons,@RequestParam("days") Integer days) {
+    GETResponse schedule(@RequestParam(value = "from",required = true) @DateTimeFormat(pattern = IGlobal.DATE_FORMAT) Date fromDate,
+                         @RequestParam(value = "n_persons", required = true) Integer nPersons, @RequestParam(value = "days", required = true) Integer days) {
         SimpleDateFormat formatter = new SimpleDateFormat(IGlobal.DATE_FORMAT);
         String[] persons = new String[nPersons];
         for (int i = 1; i <= nPersons; i++) {
