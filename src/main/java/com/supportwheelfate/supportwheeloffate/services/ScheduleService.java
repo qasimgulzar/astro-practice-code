@@ -16,7 +16,7 @@ public class ScheduleService implements IScheduleService {
         List persion_names = Arrays.asList(persons);
         List<Schedule> duties = new ArrayList<Schedule>();
         Collections.shuffle(persion_names);
-        for (int i = 1; i <= 14; i++) {
+        for (int i = 1; i <= days; i++) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(startDate);
             cal.add(Calendar.DATE, i);
