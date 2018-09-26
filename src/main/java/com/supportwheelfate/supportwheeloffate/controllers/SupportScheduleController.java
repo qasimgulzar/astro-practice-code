@@ -6,10 +6,7 @@ import com.supportwheelfate.supportwheeloffate.response.GETResponse;
 import com.supportwheelfate.supportwheeloffate.services.IScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class SupportScheduleController {
 
     @Autowired
     IScheduleService scheduleService;
-
+    @CrossOrigin(origins = "*")
     @RequestMapping("/schedule")
     GETResponse schedule(@RequestParam(value = "from",required = true) @DateTimeFormat(pattern = IGlobal.DATE_FORMAT) Date fromDate,
                          @RequestParam(value = "n_persons", required = true) Integer nPersons, @RequestParam(value = "days", required = true) Integer days) {
