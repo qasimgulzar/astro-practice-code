@@ -22,7 +22,6 @@ public class SupportScheduleController {
     @RequestMapping("/schedule")
     GETResponse schedule(@RequestParam(value = "from",required = true) @DateTimeFormat(pattern = IGlobal.DATE_FORMAT) Date fromDate,
                          @RequestParam(value = "n_persons", required = true) Integer nPersons, @RequestParam(value = "days", required = true) Integer days) {
-        SimpleDateFormat formatter = new SimpleDateFormat(IGlobal.DATE_FORMAT);
         String[] persons = new String[nPersons];
         for (int i = 1; i <= nPersons; i++) {
             persons[i - 1] = "Person-" + i;
